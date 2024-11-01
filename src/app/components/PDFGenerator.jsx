@@ -11,9 +11,8 @@ const ExportToPdf = (data) => {
 
   // Função para formatar a data de vencimento (DD/MM/YYYY)
   const formatDataVencimento = (dataString) => {
-    if (!dataString) return "Não inserida.";
-    const dataObj = new Date(dataString);
-    return dataObj.toLocaleDateString("pt-BR", { day: "2-digit", month: "2-digit", year: "numeric" });
+    const [year, month, day] = dataString.split("-");
+    return `${day}/${month}/${year}`;
   };
 
   // Função para formatar o período de referência (mês de ano)
