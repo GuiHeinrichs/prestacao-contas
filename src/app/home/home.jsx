@@ -83,8 +83,8 @@ export default function Home() {
   return (
     <div>
       <Header />
-      <main className="w-full h-screen flex flex-col items-center mt-8">
-        <form onSubmit={handleSubmit} className="w-full max-w-2xl min-w-[200px] grid grid-cols-1 md:grid-cols-2 gap-4">
+      <main className="w-full h-screen flex flex-col items-center mt-4 md:mt-8">
+        <form onSubmit={handleSubmit} className="w-full max-w-xs md:max-w-2xl min-w-[200px] grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Campos Obrigatórios */}
           <div>
             <label className="block mb-2 font-semibold text-black">Nome do Locatário:*</label>
@@ -140,7 +140,7 @@ export default function Home() {
           </div>
           <div className="md:col-span-2">
             <label className="block mb-2 font-semibold text-black">Forma de Pagamento:</label>
-            <div className="flex gap-x-4 text-black">
+            <div className="flex flex-col md:flex-row md:gap-x-4 text-black">
               <label><input type="radio" name="formaPagamento" value="Dinheiro" checked={formaPagamento === 'Dinheiro'} onChange={(e) => setFormaPagamento(e.target.value)} /> Dinheiro</label>
               <label><input type="radio" name="formaPagamento" value="Pix" checked={formaPagamento === 'Pix'} onChange={(e) => setFormaPagamento(e.target.value)} /> Pix</label>
               <label><input type="radio" name="formaPagamento" value="Transferência/Depósito" checked={formaPagamento === 'Transferência/Depósito'} onChange={(e) => setFormaPagamento(e.target.value)} /> Transferência/Depósito</label>
@@ -204,7 +204,7 @@ export default function Home() {
             <label className="block mb-2 font-semibold text-black">Observações:</label>
             <textarea ref={observacoesRef} placeholder="Informações adicionais" className="input-field h-24 resize-none" />
           </div>
-          <div className="md:col-span-2 flex justify-center mt-4">
+          <div className="md:col-span-2 flex justify-center mt-2 mb-6 md:mt-4 md:mb-0">
             <button type="submit" className="px-6 py-2 bg-[#2563eb] text-white rounded-md hover:bg-[#324672] transition duration-300">Gerar PDF</button>
           </div>
         </form>
