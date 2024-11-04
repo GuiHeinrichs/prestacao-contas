@@ -5,7 +5,7 @@ import ExportToPdf from '../components/PDFGenerator';
 
 export default function Home() {
   const nomeLocatarioRef = useRef(null);
-  const cpfLocatarioRef = useRef(null);
+  const cpfCnpjLocatarioRef = useRef(null);
   const enderecoImovelRef = useRef(null);
   const valorAluguelRef = useRef(null);
   const dataVencimentoRef = useRef(null);
@@ -59,7 +59,7 @@ export default function Home() {
     
     const formData = {
       nomeLocatario: nomeLocatarioRef.current.value,
-      cpfLocatario: cpfLocatarioRef.current.value,
+      cpfLocatario: cpfCnpjLocatarioRef.current.value,
       enderecoImovel: enderecoImovelRef.current.value,
       valorAluguel: parseFloat(valorAluguelRef.current.value.replace(/[^\d,-]/g, "").replace(",", ".")) || 0,
       dataVencimento: dataVencimentoRef.current.value,
@@ -91,14 +91,14 @@ export default function Home() {
             <input ref={nomeLocatarioRef} type="text" placeholder="Nome completo do locatário" className="input-field" />
           </div>
           <div>
-            <label className="block mb-2 font-semibold text-black">CPF do Locatário:*</label>
+            <label className="block mb-2 font-semibold text-black">CNPJ/CPF do Locatário:*</label>
             <input
-              ref={cpfLocatarioRef}
+              ref={cpfCnpjLocatarioRef}
               type="text"
-              placeholder="xxx.xxx.xxx-xx"
-              maxLength={11}
+              placeholder="CNPJ/CPF do Locatário"
+              maxLength={18}
               className="input-field"
-              onKeyUp={() => handleCpfCnpjChange(cpfLocatarioRef)}
+              onKeyUp={() => handleCpfCnpjChange(cpfCnpjLocatarioRef)}
             />
           </div>
           <div className="md:col-span-2">
